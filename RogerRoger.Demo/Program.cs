@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace RogerRoger.Demo
 {
@@ -10,10 +14,34 @@ namespace RogerRoger.Demo
   {
     static void Main(string[] args)
     {
-      var connectionString = @"Server=.\RAMBO;Database=EFTripleJ;Trusted_Connection=True;";
+      if (args.Length == 0)
+      {
+        Console.WriteLine("Usage: dotnet run rogerroger.dll config.json");
+        Environment.Exit(1);
+      }
 
+      var rawConfig = File.ReadAllText(args[0]);
+      var config = JsonConvert.DeserializeObject<Config>(rawConfig);
+
+      var connectionString = config.Connection;
       var connection = new SqlConnection(connectionString);
+      try
+      {
+        connection.Open();
+        foreach (var path in WalkFolder(config.Folder))
+        {
+          ExecSql(connection, path);
+        }
+      }
+      catch (Exception error)
+      {
+        Console.WriteLine(error.Message);
+      }
+    }
 
+    private static void ExecSql(SqlConnection connection, string path)
+    {
+      Console.WriteLine(path);
       using (IDbConnection dbConnection = connection)
       {
         string sQuery = "PRINT('hello world');";
@@ -49,6 +77,25 @@ namespace RogerRoger.Demo
         }
 
         reader.Close();
+      }
+    }
+
+    private static IEnumerable<string> WalkFolder(string root)
+    {
+      var pending = new Queue<string>();
+      pending.Enqueue(root);
+      while (pending.Any())
+      {
+        var here = pending.Dequeue();
+        foreach (string f in Directory.GetFiles(here))
+        {
+          yield return f;
+        }
+
+        foreach (string d in Directory.GetDirectories(here))
+        {
+          pending.Enqueue(d);
+        }
       }
     }
 
