@@ -22,61 +22,67 @@ namespace RogerRoger.Demo
 
       var rawConfig = File.ReadAllText(args[0]);
       var config = JsonConvert.DeserializeObject<Config>(rawConfig);
-
-      var connectionString = config.Connection;
-      var connection = new SqlConnection(connectionString);
-      try
+      foreach (var path in WalkFolder(config.Folder))
       {
-        connection.Open();
-        foreach (var path in WalkFolder(config.Folder))
+        var connectionString = config.Connection;
+        try
         {
+          var connection = new SqlConnection(connectionString);
+          connection.Open();
           ExecSql(connection, path);
         }
-      }
-      catch (Exception error)
-      {
-        Console.WriteLine(error.Message);
+        catch (Exception error)
+        {
+          Console.WriteLine(error.Message);
+        }
       }
     }
 
     private static void ExecSql(SqlConnection connection, string path)
     {
       Console.WriteLine(path);
-      using (IDbConnection dbConnection = connection)
+      try
       {
-        string sQuery = "PRINT('hello world');";
-
-        var x = dbConnection as SqlConnection;
-        x.InfoMessage += conn_InfoMessage;
-
-        dbConnection.Open();
-
-
-        SqlCommand command = connection.CreateCommand();
-        command.CommandText =
-          "select @City as Message";
-
-        SqlParameter param = new SqlParameter();
-        param.ParameterName = "@City";
-        param.Value = "NAME";
-
-        command.Parameters.Add(param);
-
-        SqlDataReader reader = command.ExecuteReader();
-
-        if (reader.HasRows)
+        using (IDbConnection dbConnection = connection)
         {
-          while (reader.Read())
+          string sQuery = "PRINT('hello world');";
+
+          var x = dbConnection as SqlConnection;
+          x.InfoMessage += conn_InfoMessage;
+
+          dbConnection.Open();
+
+
+          SqlCommand command = connection.CreateCommand();
+          command.CommandText =
+            "select @City as Message";
+
+          SqlParameter param = new SqlParameter();
+          param.ParameterName = "@City";
+          param.Value = "NAME";
+
+          command.Parameters.Add(param);
+
+          SqlDataReader reader = command.ExecuteReader();
+
+          if (reader.HasRows)
           {
-            Console.WriteLine("{0}", reader.GetString(0));
+            while (reader.Read())
+            {
+              Console.WriteLine("{0}", reader.GetString(0));
+            }
           }
-        }
-        else
-        {
-          Console.WriteLine("No rows found.");
-        }
+          else
+          {
+            Console.WriteLine("No rows found.");
+          }
 
-        reader.Close();
+          reader.Close();
+        }
+      }
+      catch (Exception error)
+      {
+        Console.WriteLine(error.Message);
       }
     }
 
