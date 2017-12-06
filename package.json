@@ -16,6 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "System.IO.Abstractions": "github:shadowmint/System.IO.Abstractions",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0"
   }
