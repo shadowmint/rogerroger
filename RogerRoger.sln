@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RogerRoger.Tests", "RogerRoger.Tests\RogerRoger.Tests.csproj", "{E2AA1D2D-7602-4477-AD66-8CAC3EC951D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RogerRoger.Demo", "RogerRoger.Demo\RogerRoger.Demo.csproj", "{39080B4B-273B-4C3B-989F-8E74A12EDB86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RogerRoger.Bin", "RogerRoger.Bin\RogerRoger.Bin.csproj", "{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,5 +60,17 @@ Global
 		{39080B4B-273B-4C3B-989F-8E74A12EDB86}.Release|x64.Build.0 = Release|x64
 		{39080B4B-273B-4C3B-989F-8E74A12EDB86}.Release|x86.ActiveCfg = Release|x86
 		{39080B4B-273B-4C3B-989F-8E74A12EDB86}.Release|x86.Build.0 = Release|x86
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|x64.Build.0 = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Debug|x86.Build.0 = Debug|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|x64.ActiveCfg = Release|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|x64.Build.0 = Release|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|x86.ActiveCfg = Release|Any CPU
+		{25EE8BF2-E0D3-4374-924A-B405BBD0EA5C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

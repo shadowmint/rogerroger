@@ -16,6 +16,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "NCore.Base.Commands": "github:shadowmint/ncore-base-commands",
+    "NCore.Base.Log": "github:shadowmint/ncore-base-log",
     "System.IO.Abstractions": "github:shadowmint/System.IO.Abstractions",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0"

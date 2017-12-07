@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NCore.Base.Commands" Version="1.1.0" />
+    <PackageReference Include="NCore.Base.Log" Version="1.0.2" />
+  </ItemGroup>
+</Project>
