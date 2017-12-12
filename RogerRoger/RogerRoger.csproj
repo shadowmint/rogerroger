@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="NCore.Base.Commands" Version="1.1.0" />
     <PackageReference Include="NLog" Version="5.0.0-beta11" />
     <PackageReference Include="System.IO.Abstractions" Version="3.0.0" />
   </ItemGroup>

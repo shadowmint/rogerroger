@@ -6,5 +6,17 @@
   <ItemGroup>
     <PackageReference Include="NCore.Base.Commands" Version="1.1.0" />
     <PackageReference Include="NCore.Base.Log" Version="1.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.IO.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Users\Doug\.nuget\packages\system.io.abstractions\3.0.0\lib\netstandard2.0\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RogerRoger\RogerRoger.csproj">
+      <Project>{666CF041-FBFC-4711-BDE9-38DB526BE243}</Project>
+      <Name>RogerRoger</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
